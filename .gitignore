@@ -1,0 +1,4 @@
+# Ignore packaged archives and OS files in git if desired, or keep clean repo
+.DS_Store
+Thumbs.db
+node_modules/

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BT Emoji Keyboard Pro</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-logo">✨</span>
+        <div class="brand-titles">
+          <h1 id="app-title">BT Emoji Keyboard Pro</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <!-- Skin Tone Picker -->
+        <div class="skin-dropdown-wrapper">
+          <button id="skin-btn" class="icon-btn" title="Skin Tone">👋</button>
+          <div id="skin-menu" class="skin-menu hidden">
+            <button data-tone="" title="Default">👋</button>
+            <button data-tone="🏻" title="Light">👋🏻</button>
+            <button data-tone="🏼" title="Medium-Light">👋🏼</button>
+            <button data-tone="🏽" title="Medium">👋🏽</button>
+            <button data-tone="🏾" title="Medium-Dark">👋🏾</button>
+            <button data-tone="🏿" title="Dark">👋🏿</button>
+          </div>
+        </div>
+        <!-- Copy Format Selector -->
+        <select id="format-select" class="format-select" title="Copy Format">
+          <option value="emoji">Emoji (🔥)</option>
+          <option value="shortcode">:code:</option>
+          <option value="unicode">U+HEX</option>
+          <option value="html">&amp;#xHEX;</option>
+        </select>
+        <!-- 6-Language Dropdown (2-letter ISO codes: EN, HE, ES, JA, ZH, TH) -->
+        <select id="lang-select" class="format-select lang-select" title="Language">
+          <option value="en">EN</option>
+          <option value="he">HE</option>
+          <option value="es">ES</option>
+          <option value="ja">JA</option>
+          <option value="zh">ZH</option>
+          <option value="th">TH</option>
+        </select>
+        <!-- Theme Toggle (Default: Light) -->
+        <button id="theme-btn" class="icon-btn" title="Toggle Light/Dark Theme">☀️</button>
+      </div>
+    </header>
+
+    <!-- 1. Search Field (Top) -->
+    <section class="top-controls">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search emojis (e.g., fire, heart, rocket, smile)..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="clear-search" class="clear-btn hidden" title="Clear search">✕</button>
+      </div>
+
+      <!-- 2. Copy Field (Always visible right below Search!) -->
+      <div class="copy-field-row">
+        <input
+          type="text"
+          id="tray-input"
+          class="tray-input"
+          placeholder="Copy field — click emojis to collect &amp; copy..."
+        />
+        <div class="tray-actions">
+          <button id="tray-copy-btn" class="tray-btn primary" title="Copy to clipboard">📋 Copy</button>
+          <button id="tray-insert-btn" class="tray-btn accent" title="Insert into active page field">⚡ Insert</button>
+          <button id="tray-clear-btn" class="tray-btn danger" title="Clear copy field">✕</button>
+        </div>
+      </div>
+
+      <!-- 3. "Recently Used" Pinned Fixed At Top! -->
+      <div id="recents-top-bar" class="recents-top-bar">
+        <div class="recents-header">
+          <span id="recents-title">🕒 Recently Used</span>
+          <button id="clear-recents-btn" class="link-btn">Clear</button>
+        </div>
+        <div id="recents-grid" class="emoji-grid recents-strip"></div>
+      </div>
+    </section>
+
+    <!-- Category Navigation Bar -->
+    <nav id="category-nav" class="category-nav" aria-label="Emoji Categories"></nav>
+
+    <!-- Main Emoji Grid Area -->
+    <main id="emoji-viewport" class="emoji-viewport" tabindex="0">
+      <!-- Pinned Favorites Section -->
+      <div id="pinned-section" class="sub-section hidden">
+        <div class="section-header">
+          <span id="pinned-title">📌 Pinned Favorites (Right-click to pin/unpin)</span>
+        </div>
+        <div id="pinned-grid" class="emoji-grid compact"></div>
+      </div>
+
+      <!-- Active Category / Search Results Header -->
+      <div class="section-header main-cat-header">
+        <span id="current-cat-title">All Emojis</span>
+        <span id="results-count" class="badge-count">0</span>
+      </div>
+
+      <!-- Main Grid -->
+      <div id="emoji-grid" class="emoji-grid"></div>
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-emoji">🧐</div>
+        <p id="empty-text">No matching emojis found.</p>
+      </div>
+    </main>
+
+    <!-- Bottom Inspector Footer -->
+    <footer class="inspector-bar">
+      <div class="inspector-preview" id="inspector-char">✨</div>
+      <div class="inspector-meta">
+        <div class="inspector-name" id="inspector-name">Click any emoji to copy • Right-click to pin favorite</div>
+        <div class="inspector-codes" id="inspector-codes">Alt+Shift+E quick launch • Arrow keys + Enter to pick</div>
+      </div>
+      <a href="https://brandtactics.co.il" target="_blank" rel="noopener" class="bt-credit" title="Powered by BrandTactics">BT</a>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="emoji-data.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

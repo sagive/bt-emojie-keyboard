@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "BT Emoji Keyboard Pro — Instant Copy & Insert (HE/EN)",
+  "short_name": "BT Emoji Pro",
+  "version": "1.0.0",
+  "description": "Ultra-fast bilingual (English & Hebrew) Emoji Keyboard. Instant 1-click Copy, Direct Insert into active input, Multi-Copy staging, Combos, Skin Tones & Favorites.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "BT Emoji Keyboard Pro (Alt+Shift+E)",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "clipboardWrite",
+    "contextMenus"
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+E",
+        "mac": "Alt+Shift+E"
+      },
+      "description": "Open BT Emoji Keyboard Pro"
+    }
+  },
+  "author": "BrandTactics"
+}

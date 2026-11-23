@@ -1,0 +1,561 @@
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-Elevated: #334155;
+  --bg-hover: rgba(99, 102, 241, 0.2);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(148, 163, 184, 0.22);
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-glow: rgba(99, 102, 241, 0.35);
+  --success: #10b981;
+  --danger: #ef4444;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+  --emoji-font: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+html[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f1f5f9;
+  --bg-Elevated: #e2e8f0;
+  --bg-hover: rgba(79, 70, 229, 0.14);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #cbd5e1;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-glow: rgba(79, 70, 229, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 480px;
+  height: 595px;
+  max-width: 480px;
+  max-height: 595px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-logo {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.brand-titles h1 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-btn,
+.pill-btn {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  height: 28px;
+  min-width: 30px;
+  padding: 0 8px;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.pill-btn {
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.icon-btn:hover,
+.pill-btn:hover {
+  border-color: var(--accent);
+  background: var(--bg-hover);
+}
+
+.format-select {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  height: 28px;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 0 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.lang-select {
+  font-weight: 700;
+  padding: 0 4px;
+}
+
+/* Skin Tone Menu */
+.skin-dropdown-wrapper {
+  position: relative;
+}
+
+.skin-menu {
+  position: absolute;
+  top: 32px;
+  inset-inline-end: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  display: flex;
+  gap: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 40;
+}
+
+.skin-menu button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skin-menu button:hover {
+  background: var(--bg-hover);
+  transform: scale(1.12);
+}
+
+/* Top Controls: 1. Search Field, 2. Copy Field, 3. Recents Top Bar */
+.top-controls {
+  padding: 10px 14px 8px;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  inset-inline-start: 11px;
+  font-size: 13.5px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+#search-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 32px 0 34px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.clear-btn {
+  position: absolute;
+  inset-inline-end: 9px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* 2. Copy Field Row */
+.copy-field-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tray-input {
+  flex: 1;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0 12px;
+  font-size: 15px;
+  font-family: var(--emoji-font);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.tray-input:focus {
+  border-color: var(--accent);
+}
+
+.tray-actions {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.tray-btn {
+  height: 36px;
+  padding: 0 11px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.tray-btn:active {
+  transform: scale(0.96);
+}
+
+.tray-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.tray-btn.accent {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.tray-btn.danger {
+  background: var(--bg-Elevated);
+  color: var(--text-primary);
+  padding: 0 10px;
+}
+
+/* 3. "לאחרונה" (Recents) Top Strip */
+.recents-top-bar {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 5px 10px 7px;
+}
+
+.recents-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+/* Category Nav — Strictly uniform square category icons */
+.category-nav {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  align-items: center;
+  padding: 5px 14px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.cat-btn {
+  background: transparent;
+  border: none;
+  font-size: 17px;
+  font-family: var(--emoji-font);
+  width: 100%;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.14s ease;
+  opacity: 0.75;
+}
+
+.cat-btn:hover {
+  background: var(--bg-hover);
+  opacity: 1;
+}
+
+.cat-btn.active {
+  background: var(--bg-hover);
+  opacity: 1;
+  box-shadow: inset 0 -2.5px 0 var(--accent);
+}
+
+/* Main Emoji Viewport — Zero horizontal scroll */
+.emoji-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 6px 14px 12px;
+  outline: none;
+}
+
+.emoji-viewport::-webkit-scrollbar {
+  width: 6px;
+}
+
+.emoji-viewport::-webkit-scrollbar-thumb {
+  background: var(--bg-Elevated);
+  border-radius: 3px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 5px 2px;
+}
+
+.badge-count {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1px 7px;
+  border-radius: 99px;
+  font-size: 10.5px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Strictly uniform 9-column grid where every single icon cell has identical width & height */
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 5px;
+  width: 100%;
+}
+
+.recents-strip {
+  grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+  gap: 5px !important;
+}
+
+.emoji-grid.compact {
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.emoji-cell {
+  position: relative;
+  width: 100%;
+  height: 44px;
+  min-width: 0;
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.02);
+  font-family: var(--emoji-font);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: transform 0.1s ease, background-color 0.1s ease, border-color 0.1s ease;
+}
+
+.recents-strip .emoji-cell {
+  height: 38px;
+  font-size: 22px;
+}
+
+/* Multi-char combos fit cleanly inside the exact same 44x44 square cell without stretching the column */
+.emoji-cell.combo-cell {
+  font-size: 13.5px;
+  letter-spacing: -1px;
+}
+
+.emoji-cell:hover,
+.emoji-cell.focused {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.emoji-cell.pinned::after {
+  content: "•";
+  position: absolute;
+  top: 2px;
+  inset-inline-end: 4px;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-secondary);
+}
+
+.empty-emoji {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  font-size: 13px;
+}
+
+/* Bottom Inspector Bar */
+.inspector-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  height: 46px;
+  flex-shrink: 0;
+}
+
+.inspector-preview {
+  font-size: 24px;
+  font-family: var(--emoji-font);
+  width: 34px;
+  text-align: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.inspector-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.inspector-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inspector-codes {
+  font-size: 10.5px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bt-credit {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
+/* Toast */
+.toast {
+  position: absolute;
+  bottom: 54px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.96);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  z-index: 60;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none !important;
+}
