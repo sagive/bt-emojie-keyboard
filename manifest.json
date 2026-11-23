@@ -3,7 +3,8 @@
   "name": "BT Emoji Keyboard Pro — Instant Copy & Insert (HE/EN)",
   "short_name": "BT Emoji Pro",
   "version": "1.0.0",
-  "description": "Ultra-fast bilingual (English & Hebrew) Emoji Keyboard. Instant 1-click Copy, Direct Insert into active input, Multi-Copy staging, Combos, Skin Tones & Favorites.",
+  "description": "Ultra-fast 6-language (EN, HE, ES, JA, ZH, TH) Emoji Keyboard. Instant 1-click Copy, Direct Insert into active input, Copy Field, Combos, Skin Tones & Favorites.",
+  "homepage_url": "https://github.com/sagive/bt-emojie-keyboard",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",

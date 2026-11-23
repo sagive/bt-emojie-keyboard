@@ -1,21 +1,42 @@
-# ✨ BT Emoji Keyboard Pro — Instant Copy & Insert (HE/EN)
+# ✨ BT Emoji Keyboard Pro — Instant Copy & Insert (EN / HE / ES / JA / ZH / TH)
 
-תוסף Chrome מתקדם בתקן **Manifest V3** למקלדת אימוג׳י דו-לשונית (עברית + אנגלית) עם העתקה מיידית בלחיצה אחת, הזרקה ישירה לשדה הטקסט הפעיל בעמוד, מגש איסוף מרובה (Multi-Copy Tray), בורר גווני עור, מועדפים מוצמדים ו-4 פורמטי העתקה.
+![BT Emoji Keyboard Pro Showcase](store-assets/bt-emoji-keyboard-pro-features-2.jpg)
 
-## תכונות מרכזיות
-- **חיפוש דו-לשוני מיידי (`<2ms`)**: חיפוש חופשי בעברית ("אש", "לב", "צחוק", "כפיים", "טיל", "חמסה", "דגל ישראל") ובאנגלית (`fire`, `rocket`, `heart`, `:tada:`).
-- **3 מצבי פעולה חכמים**:
-  1. **📋 העתק ללוח (Copy to Clipboard)**
-  2. **⚡ הכנס לשדה בעמוד (Direct Insert to Active Input / ContentEditable)**
-  3. **🧺 איסוף מרובה (Multi-Copy Staging Tray)**
-- **אפס הרשאות פולשניות**: ללא `<all_urls>`, ללא מעקב וללא שרתים חיצוניים.
-- **קיצור מקלדת גלובלי**: `Alt+Shift+E` + ניווט מלא בחיצי המקלדת ו-`Enter`.
+**BT Emoji Keyboard Pro** is an ultra-fast, lightweight **Manifest V3** Chrome Extension built by **[BrandTactics](https://brandtactics.co.il)** for instant 1-click emoji copying, multi-emoji staging, and direct insertion into any active web page text field (`<input>`, `<textarea>`, or `contenteditable`).
 
-## קבצי הפרויקט בתיקייה `D:\Websites\Chrome\bt-emojie-keyboard`
-- `manifest.json` — קובץ המניפסט בתקן Manifest V3
-- `emoji-data.js` — מאגר אימוג׳ים דו-לשוני (עברית ואנגלית)
-- `popup.html`, `popup.css`, `popup.js` — ממשק התוסף המלא
-- `icons/` — אייקונים (`16x16`, `32x32`, `48x48`, `128x128`)
-- `store-assets/` — צילומי מסך (`1280x800`) ו-Promo Tile (`440x280`) עבור Chrome Web Store
-- `ARTICLE_HEBREW.html` — המאמר המקיף בעברית על אפיון ופיתוח התוסף וניתוח חוות הדעת ב-Chrome Web Store
-- `bt-emojie-keyboard-v1.0.0.zip` — החבילה המוכנה להעלאה ל-Chrome Web Store Developer Dashboard
+- **GitHub Repository**: [https://github.com/sagive/bt-emojie-keyboard](https://github.com/sagive/bt-emojie-keyboard)
+- **Developer Website**: [https://brandtactics.co.il](https://brandtactics.co.il)
+
+---
+
+## 🚀 Key Features
+
+1. **6-Language Native Localization (`EN`, `HE`, `ES`, `JA`, `ZH`, `TH`)**:
+   - **EN (English — Default)**
+   - **HE (עברית — Full RTL layout & Hebrew slang search)**
+   - **ES (Español — Argentina)**
+   - **JA (日本語 — Japanese)**
+   - **ZH (中文 — Chinese)**
+   - **TH (ไทย — Thai)**
+   - Every tooltip, category title, search index, and bottom inspector description adapts strictly to the selected language with zero cross-language clutter.
+2. **Optimized 3-Tier Top Workflow**:
+   - **🔍 Auto-Focus Search Field**: Filter 280+ curated emojis, symbols, and ready-made combos in `<2ms`.
+   - **📋 Persistent Copy & Insert Field**: Every click appends the emoji to the Copy Field and copies it immediately to your clipboard, with 1-click **Copy**, **Insert into active page**, and **Clear** buttons.
+   - **🕒 Pinned "Recently Used" Bar at Top**: Your 9 most recent emojis are always 1 click away right below the Copy Field.
+3. **📌 Right-Click Pinned Favorites & ⚡ Smart Combos / Kaomoji**:
+   - Right-click any emoji to pin/unpin it to your personal Favorites grid.
+   - Includes ready-to-use multi-emoji combos (`🚀🔥💯`, `🙏❤️🇮🇱`, `✅🎯📈`, `👏🏆🥇`) and Kaomoji (`¯\_(ツ)_/¯`, `(╯°□°)╯︵ ┻━┻`).
+4. **4 Copy Formats & 6 Fitzpatrick Skin Tones**:
+   - Copy as native `Emoji (🔥)`, `:shortcode:`, `U+HEX` Unicode, or `&#xHEX;` HTML Entity.
+   - Clean Light Theme by default with instant Light/Dark (`☀️ / 🌙`) toggle and uniform `44x44px` 9-column square grid (`480x595` popup).
+5. **100% Privacy-First (Zero `<all_urls>` Host Permissions)**:
+   - Runs 100% offline with zero telemetry, zero remote scripts, and minimal Manifest V3 permissions (`storage`, `activeTab`, `scripting`, `clipboardWrite`, `contextMenus`).
+
+---
+
+## 🛠️ Local Installation (`Load unpacked`)
+
+1. Open Chrome and navigate to `chrome://extensions/`
+2. Enable **Developer mode** (top-right toggle).
+3. Click **Load unpacked** and select this project folder (`D:\Websites\Chrome\bt-emojie-keyboard`).
+4. Press `Alt+Shift+E` (or click the toolbar icon) to launch!
